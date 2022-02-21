@@ -1,0 +1,50 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello RoomController!{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('comment_create') }}"> Create Comment </a>
+
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Subject</th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+            {% for comment in comments %}
+                <tr>
+                    <td> {{ comment.id }} </td>
+                    <td> {{ comment.subject }} </td>
+                    <td>
+                        <form method="post" action="{{ path('comment_delete', {'id': comment.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+{#                            <a#}
+{#                                    class="btn btn-outline-info"#}
+{#                                    href="{{ path('project_show', {'id': room.id}) }}">#}
+{#                                Show#}
+{#                            </a>#}
+                            <a
+                                    class="btn btn-outline-success"
+                                    href="{{ path('comment_edit', {'id': comment.id}) }}">
+                                Edit
+                            </a>
+
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+
+            {% else %}
+                <tr>
+                    <td colspan="9">no records found</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+{% endblock %}

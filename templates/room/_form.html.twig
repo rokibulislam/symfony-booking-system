@@ -1,0 +1,37 @@
+{{ form_start(roomForm) }}
+
+    <div class="form-group">
+        {{ form_row(roomForm.imageFilename) }}
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            {{ form_row(roomForm.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            {{ form_row(roomForm.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            {{ form_row(roomForm.price, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            {{ form_row(roomForm.number, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            <button class="btn {{ button_color|default('btn-outline-primary') }}  mt-3">{{ button_label|default('Save Room') }}</button>
+        </div>
+    </div>
+
+{{ form_end(roomForm) }}

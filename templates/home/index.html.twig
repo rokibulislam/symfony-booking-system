@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class=" d-flex justify-content-sm-between flex-wrap container">
+        {% for room in rooms %}
+            <div class="room-box card mb-lg-5">
+                <img class="card-img-top" src="{{ asset('uploads/' ~ room.imageFilename) }}" height="200">
+                <div class="card-body">
+                    <h2 class="card-title"> <a  href="{{ path('room_details', {id: room.id }) }}"> {{ room.title }} </a>  </h2>
+                    <p> {{ room.price }} </p>
+                    <p> {{ room.number }} </p>
+                    <p> {{ room.status }} </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <style>
+        .room-box {
+            flex-basis: 31%;
+        }
+
+        .card-title a {
+            color: #313131;
+        }
+
+    </style>
+{% endblock %}

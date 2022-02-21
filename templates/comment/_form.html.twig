@@ -1,0 +1,33 @@
+{{ form_start(commentForm) }}
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            {{ form_row(commentForm.subject, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+<div class="form-group">
+    <div class="col-md-12 mb-3">
+        {{ form_row(commentForm.comment, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-12 mb-3">
+        {{ form_row(commentForm.status, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-12 mb-3">
+        {{ form_row(commentForm.rating, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+    <div class="form-group">
+        <div class="col-md-12 mb-3">
+            <button class="btn {{ button_color|default('btn-outline-primary') }}  mt-3">{{ button_label|default('Add Comment') }}</button>
+        </div>
+    </div>
+
+{{ form_end(commentForm) }}

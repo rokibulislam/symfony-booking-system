@@ -1,0 +1,10 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello RoomController!{% endblock %}
+
+{% block body %}
+    {% include 'room/_form.html.twig' with {'button_label': 'Update Room', 'button_color': 'btn-outline-success'}  %}
+
+    <a href="{{ path('room_index') }}">back to list</a>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello RoomController!{% endblock %}
+
+{% block body %}
+    {% include 'comment/_form.html.twig' with {'button_label': 'Update Comment', 'button_color': 'btn-outline-success'}  %}
+
+    <a href="{{ path('comment_index') }}">back to list</a>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello ReservationController!{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('reservation_create') }}"> Create Reservation </a>
+
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date </th>
+                <th scope="col"> Action </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td> {{  reservation.id }}</td>
+                    <td></td>
+                    <td></td>
+{#                    <td> {{ reservation.start_date|date('Y-m-d')  }} </td>#}
+{#                    <td> {{ reservation.end_date }} </td>#}
+                    <td>
+                        <form method="post" action="{{ path('reservation_delete', {'id': reservation.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <a href="{{ path('reservation_edit', { 'id': reservation.id }) }}"> Edit  </a>
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ reservation.id) }}">
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

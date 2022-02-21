@@ -1,0 +1,27 @@
+{{ form_start(reservationForm) }}
+
+<div class="form_group">
+    <div class="col-md-12 mb-3">
+        {{ form_row(reservationForm.start_date, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="form_group">
+    <div class="col-md-12 mb-3">
+        {{ form_row(reservationForm.end_time, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+
+    <div class="form_group">
+        <div class="col-md-12 mb-3">
+            {{ form_row(reservationForm.status, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+<div class="form_group">
+    <div class="col-md-12 mb-3">
+        <button class="btn {{ button_color|default('btn-outline-primary') }}  mt-3">{{ button_label|default('Save Reservation') }}</button>
+    </div>
+</div>
+
+{{ form_end(reservationForm) }}

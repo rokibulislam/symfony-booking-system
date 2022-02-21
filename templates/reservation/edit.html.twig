@@ -1,0 +1,7 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello RoomController!{% endblock %}
+
+{% block body %}
+    {% include 'reservation/_form.html.twig' with {'button_label': 'Update Room', 'button_color': 'btn-outline-success'}  %}
+{% endblock %}

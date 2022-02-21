@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <img src="{{ asset('uploads/' ~ room.imageFilename) }}" height="300">
+            </div>
+
+            <div class="col-md-5">
+                <h2>  {{ room.title }}  </h2>
+
+                <div>
+                    <p>Description: {{ room.description }}</p>
+                </div>
+
+                <div>
+                    <p> Price: {{ room.price }}</p>
+                </div>
+
+                <div>
+                    <p> Room Number: {{ room.number }}</p>
+                </div>
+
+                <div>
+                    <p> Room Status: {{ room.status }}</p>
+                </div>
+
+                <form  method="post">
+                    <div class="form-group">
+                        <label> Checkin Date : </label>
+                        <input type="date" id="checkin" name="checkin"  style="width: 140px" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Chckout Date : </label>
+                        <input type="date" id="checkin" name="checkin"  style="width: 140px" required/>
+                    </div>
+
+                    <input type="submit" value="Reserve Room" class="btn btn-success">
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
